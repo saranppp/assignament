@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body>
+    <h1>Student Details</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Total Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.total_marks }}</td>
+                <!-- Display other fields here -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- student_details.html -->
+<form action="{% url 'filter-student-details' %}" method="GET">
+    <label for="filter-criteria">Filter Criteria:</label>
+    <select name="filter_criteria" id="filter-criteria">
+      <option value="id">ID</option>
+      <option value="name">Name</option>
+    </select>
+  
+    <input type="text" name="filter_value" placeholder="Enter filter value" required>
+    <button type="submit">Filter</button>
+  </form>
+  
+  <!-- Display filtered results -->
+  <div>
+    {% for student in students %}
+      <p>ID: {{ student.id }}</p>
+      <p>Name: {{ student.name }}</p>
+      <p>Total Marks: {{ student.total_marks }}</p>
+      <hr>
+    {% endfor %}
+  </div>
+</body>
+</html>
