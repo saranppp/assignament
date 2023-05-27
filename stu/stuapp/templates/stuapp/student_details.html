@@ -20,12 +20,10 @@
                 <td>{{ student.id }}</td>
                 <td>{{ student.name }}</td>
                 <td>{{ student.total_marks }}</td>
-                <!-- Display other fields here -->
-            </tr>
             {% endfor %}
         </tbody>
     </table>
-    <!-- student_details.html -->
+   
 <form action="{% url 'filter-student-details' %}" method="GET">
     <label for="filter-criteria">Filter Criteria:</label>
     <select name="filter_criteria" id="filter-criteria">
@@ -37,7 +35,7 @@
     <button type="submit">Filter</button>
   </form>
   
-  <!-- Display filtered results -->
+  
   <div>
     {% for student in students %}
       <p>ID: {{ student.id }}</p>

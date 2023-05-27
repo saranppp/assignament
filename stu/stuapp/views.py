@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from .forms import StudentForm
 
 def load_student_details(request):
-    # Assuming CSV file format with headers: id, name, total_marks
+    
     file_path = 'C:/Users/saran p s/Desktop/assignament/stu/student_marks.csv'  # Update with your file path
     page_number = int(request.GET.get('page', 1))
     page_size = int(request.GET.get('page_size', 10))
@@ -20,7 +20,7 @@ def load_student_details(request):
                 id=row['id'],
                 name=row['name'],
                 total_marks=row['total_marks'],
-                # Set other field values accordingly
+                
             )
             students.append(student)
 
@@ -31,7 +31,7 @@ def load_student_details(request):
                 'id': student.id,
                 'name': student.name,
                 'total_marks': student.total_marks,
-                # Add other fields here
+                
             }
             for student in page
         ]
@@ -56,7 +56,7 @@ def filter_student_details(request):
                 id=row['id'],
                 name=row['name'],
                 total_marks=row['total_marks'],
-                # Set other field values accordingly
+                
             )
             students.append(student)
 
@@ -65,7 +65,7 @@ def filter_student_details(request):
                 'id': student.id,
                 'name': student.name,
                 'total_marks': student.total_marks,
-                # Add other fields here
+                
             }
             for student in students
         ]
